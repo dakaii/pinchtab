@@ -191,7 +191,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ## License
 
-Apache 2.0 — Free and open source.
+MIT — Free and open source.
 
 ---
 
