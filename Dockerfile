@@ -46,11 +46,8 @@ USER pinchtab
 WORKDIR /data
 
 # Environment variables
-ENV BRIDGE_BIND=0.0.0.0 \
-    BRIDGE_PORT=9867 \
-    BRIDGE_HEADLESS=true \
-    BRIDGE_STATE_DIR=/data \
-    BRIDGE_PROFILE=/data/chrome-profile \
+ENV PINCHTAB_BIND=0.0.0.0 \
+    PINCHTAB_PORT=9867 \
     CHROME_BINARY=/usr/bin/chromium-browser \
     CHROME_FLAGS="--no-sandbox --disable-gpu"
 
