@@ -57,7 +57,7 @@ pinchtab instance navigate inst_ea2e747f https://pinchtab.com
 ```bash
 curl http://localhost:9867/tabs
 # CLI Alternative
-pinchtab tabs
+pinchtab tab
 # Response
 {
   "tabs": [
@@ -75,7 +75,7 @@ Notes:
 
 - `GET /tabs` is not a fleet-wide orchestrator inventory
 - in bridge mode or shorthand mode it lists tabs from the active browser context
-- `pinchtab tabs` follows that shorthand behavior
+- `pinchtab tab` follows that shorthand behavior
 
 ### One Instance
 

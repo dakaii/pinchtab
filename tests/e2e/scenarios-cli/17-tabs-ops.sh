@@ -4,10 +4,10 @@
 source "$(dirname "$0")/common.sh"
 
 # ─────────────────────────────────────────────────────────────────
-start_test "pinchtab tabs (list)"
+start_test "pinchtab tab (list)"
 
 pt_ok nav "${FIXTURES_URL}/form.html"
-pt_ok tabs
+pt_ok tab
 assert_output_json
 
 end_test

@@ -26,7 +26,7 @@ var quickCmd = &cobra.Command{
 
 var navCmd = &cobra.Command{
 	Use:     "nav <url>",
-	Aliases: []string{"goto", "navigate"},
+	Aliases: []string{"goto", "navigate", "open"},
 	Short:   "Navigate to URL",
 	Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {

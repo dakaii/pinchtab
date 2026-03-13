@@ -4,7 +4,7 @@
 source "$(dirname "$0")/common.sh"
 
 # ─────────────────────────────────────────────────────────────────
-start_test "pinchtab tabs (list)"
+start_test "pinchtab tab (list)"
 
 # Create a tab first
 pt_ok nav "${FIXTURES_URL}/index.html"
@@ -16,7 +16,7 @@ assert_output_contains "tabs" "returns tabs array"
 end_test
 
 # ─────────────────────────────────────────────────────────────────
-start_test "pinchtab tabs close <id>"
+start_test "pinchtab tab close <id>"
 
 pt_ok nav "${FIXTURES_URL}/form.html"
 TAB_ID=$(echo "$PT_OUT" | jq -r '.tabId')
