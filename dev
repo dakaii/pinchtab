@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# pdev — Pinchtab developer toolkit
-# Usage: pdev [command] [sub]    Run a command directly
-#        pdev                    Interactive picker
+# dev — Pinchtab developer toolkit
+# Usage: dev [command] [sub]    Run a command directly
+#        dev                    Interactive picker
 
 cd "$(dirname "$0")"
 
@@ -17,18 +17,15 @@ NC=$'\033[0m'
 # ── Commands ─────────────────────────────────────────────────────────
 # name:emoji:description
 COMMANDS=(
-  "dev:🚀:Build & run"
   "build:🔨:Build the application"
+  "dev:🚀:Build & run"
   "run:🏃:Run the application"
   "check:🧪:All checks"
-  "test:🔬:All tests"
-  "  unit:🔬:Unit tests only"
-  "  integration:🔬:Integration tests only"
-  "  system:🔬:System tests only"
-  "doctor:🩺:Setup dev environment"
-  "e2e:🐳:E2E tests (Docker)"
-  "  curl:🐳:E2E curl tests"
+  "test:🔬:Unit tests"
+  "e2e:🐳:E2E tests"
+  "  curl:🐳:E2E Curl tests"
   "  cli:🐳:E2E CLI tests"
+  "doctor:🩺:Setup dev environment"
   "check go:🧪:Go only"
   "check dashboard:🧪:Dashboard only"
   "check security:🧪:Gosec security scan"
@@ -54,7 +51,7 @@ show_help() {
     fi
   done
   echo ""
-  echo "  ${MUTED}Usage: pdev [command] [sub]${NC}"
+  echo "  ${MUTED}Usage: dev [command] [sub]${NC}"
   echo ""
 }
 

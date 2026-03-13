@@ -3,7 +3,7 @@
 ## Automated ✅ (CI/GitHub enforces these)
 These run automatically via `ci.yml`. If your PR fails them, fix and re-push.
 - [ ] Go formatting & linting passes (gofmt, vet, golangci-lint)
-- [ ] Unit + E2E tests pass (`go test ./...` and `./pdev e2e`)
+- [ ] Unit + E2E tests pass (`go test ./...` and `./dev e2e`)
 - [ ] Build succeeds (`go build`)
 - [ ] CodeQL security scan passes
 - [ ] Branch naming follows convention
@@ -20,7 +20,7 @@ These run automatically via `ci.yml`. If your PR fails them, fix and re-push.
 
 ## Manual — Testing (Required)
 - [ ] **New/changed functionality has tests** — Same-package unit tests preferred
-- [ ] **Docker E2E tests run locally** — If you modified handlers/bridge/tabs, run: `./pdev e2e` (Docker curl E2E) and/or `./pdev e2e cli` (Docker CLI E2E)
+- [ ] **Docker E2E tests run locally** — If you modified handlers/bridge/tabs, run: `./dev e2e` (Docker curl E2E) and/or `./dev e2e cli` (Docker CLI E2E)
 - [ ] **npm commands work** (if npm wrapper touched):
   - `npm pack` in `/npm/` produces valid tarball
   - `npm install -g pinchtab` (or from local tarball) succeeds

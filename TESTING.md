@@ -1,21 +1,21 @@
 # Testing
 
-## Quick Start with pdev
+## Quick Start with dev
 
-The `pdev` developer toolkit is the easiest way to run checks and tests:
+The `dev` developer toolkit is the easiest way to run checks and tests:
 
 ```bash
-./pdev                    # Interactive picker
-./pdev test               # All tests (unit + E2E)
-./pdev test unit          # Unit tests only
-./pdev e2e                # E2E tests (both curl and CLI)
-./pdev e2e curl           # E2E curl tests only
-./pdev e2e cli            # E2E CLI tests only
-./pdev check              # All checks (format, vet, build, lint)
-./pdev check go           # Go checks only
-./pdev check security     # Gosec security scan
-./pdev format dashboard   # Run Prettier on dashboard sources
-./pdev doctor             # Setup dev environment
+./dev                    # Interactive picker
+./dev test               # All tests (unit + E2E)
+./dev test unit          # Unit tests only
+./dev e2e                # E2E tests (both curl and CLI)
+./dev e2e curl           # E2E curl tests only
+./dev e2e cli            # E2E CLI tests only
+./dev check              # All checks (format, vet, build, lint)
+./dev check go           # Go checks only
+./dev check security     # Gosec security scan
+./dev format dashboard   # Run Prettier on dashboard sources
+./dev doctor             # Setup dev environment
 ```
 
 ## Unit Tests
@@ -23,7 +23,7 @@ The `pdev` developer toolkit is the easiest way to run checks and tests:
 ```bash
 go test ./...
 # or
-./pdev test unit
+./dev test unit
 ```
 
 Unit tests are standard Go tests that validate individual packages and functions without launching a full server.
@@ -35,7 +35,7 @@ End-to-end tests launch a real pinchtab server with Chrome and run integration-l
 ### Curl Tests (HTTP API)
 
 ```bash
-./pdev e2e curl
+./dev e2e curl
 ```
 
 Runs 183 HTTP-level tests using curl against the server. Tests the REST API, navigation, snapshots, and other HTTP endpoints.
@@ -43,7 +43,7 @@ Runs 183 HTTP-level tests using curl against the server. Tests the REST API, nav
 ### CLI Tests
 
 ```bash
-./pdev e2e cli
+./dev e2e cli
 ```
 
 Runs 41 CLI integration tests. Tests the command-line interface directly.
@@ -51,7 +51,7 @@ Runs 41 CLI integration tests. Tests the command-line interface directly.
 ### Both E2E Test Suites
 
 ```bash
-./pdev e2e
+./dev e2e
 ```
 
 Runs all E2E tests (curl + CLI, 224 tests total).
@@ -79,7 +79,7 @@ Each E2E test run creates a single temp directory under `/tmp/pinchtab-test-*/`:
 Everything is cleaned up automatically when tests finish. To inspect after a failure:
 
 ```bash
-PINCHTAB_TEST_KEEP_DIR=1 ./pdev e2e
+PINCHTAB_TEST_KEEP_DIR=1 ./dev e2e
 ```
 
 ## Test File Structure

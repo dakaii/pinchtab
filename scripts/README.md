@@ -2,7 +2,7 @@
 
 Development and CI scripts for PinchTab.
 
-> **Tip:** Use `./pdev` from the repo root for an interactive command picker, or `./pdev <command>` to run directly.
+> **Tip:** Use `./dev` from the repo root for an interactive command picker, or `./dev <command>` to run directly.
 
 ## Quality
 

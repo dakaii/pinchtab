@@ -45,7 +45,7 @@ curl http://localhost:9867/health
 ```bash
 git clone https://github.com/pinchtab/pinchtab.git
 cd pinchtab
-./pdev doctor
+./dev doctor
 go build -o pinchtab ./cmd/pinchtab
 ./pinchtab --version
 ```
