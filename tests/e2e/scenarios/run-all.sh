@@ -19,10 +19,16 @@ wait_for_instance_ready "${PINCHTAB_URL}"
 wait_for_instance_ready "${PINCHTAB_SECURE_URL}"
 echo ""
 
-# Find and run all test scripts in order
+# Tests in run-recent.sh are excluded here to avoid running them twice.
+RECENT_ONLY="41-extensions.sh|42-lite-engine.sh"
+
 for script in "${SCRIPT_DIR}"/[0-9][0-9]-*.sh; do
+  name="$(basename "$script")"
+  if echo "$name" | grep -qE "^($RECENT_ONLY)$"; then
+    continue
+  fi
   if [ -f "$script" ]; then
-    echo -e "${YELLOW}Running: $(basename "$script")${NC}"
+    echo -e "${YELLOW}Running: ${name}${NC}"
     echo ""
     source "$script"
     echo ""
