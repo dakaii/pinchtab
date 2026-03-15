@@ -125,8 +125,10 @@ func setupAllocator(cfg *config.RuntimeConfig) (context.Context, context.CancelF
 			opts = append(opts, chromedp.Flag("enable-automation", false))
 			slog.Info("loading extensions", "paths", joined)
 		}
+		opts = append(opts, chromedp.Flag("enable-automation", false))
 	} else {
 		opts = append(opts, chromedp.Flag("disable-extensions", true))
+		opts = append(opts, chromedp.Flag("enable-automation", false))
 	}
 
 	// User Data Dir
@@ -380,7 +382,16 @@ func buildChromeArgs(cfg *config.RuntimeConfig, port int) []string {
 }
 
 func injectedScript(ctx context.Context, script string) error {
-	return nil // Placeholder
+	// Use Page.addScriptToEvaluateOnNewDocument to inject the stealth script
+	// BEFORE any page JavaScript runs. This is critical for hiding automation
+	// signals like navigator.webdriver.
+	// Note: This is called from within chromedp.Run/ActionFunc, so we use
+	// direct CDP execution instead of nested chromedp.Run to avoid deadlocks.
+	return chromedp.FromContext(ctx).Target.Execute(ctx,
+		"Page.addScriptToEvaluateOnNewDocument",
+		map[string]interface{}{
+			"source": script,
+		}, nil)
 }
 
 func randomWindowSize() (int, int) {
